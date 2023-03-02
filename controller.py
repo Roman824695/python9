@@ -10,8 +10,7 @@ def start():
       case 1:
         pb.open_file() 
       case 2:
-       #  pb.save_phone_book()
-         pass
+         pb.save_phone_book()
       case 3:
          book = pb.get()
          view.show_contact(book)

@@ -1,4 +1,4 @@
-import re
+
 class PhoneBook:
     
  
@@ -10,21 +10,17 @@ class PhoneBook:
     def open_file(self):
       with open(self.path, 'r', encoding='UTF-8') as file:
          data = file.readlines()
+      self.phone_book = []
       for contact in data:
-        pb = {}
-        new = contact.strip().split(';')
-        pb['name'] = new[0]
-        pb['phone'] = new[1]
-        pb['comment'] = new[2]
-        self.phone_book.append(pb)
+         pb = {}
+         new = contact.strip().split(';')
+         pb['name'] = new[0]
+         pb['phone'] = new[1]
+         pb['comment'] = new[2]
+         self.phone_book.append(pb)
       print('\n>>Телефонный справочник активирован<<\n')
+      
 
-
-
-
-        
-    def save_file():
-      pass
 
 
     def get(self):
@@ -37,7 +33,6 @@ class PhoneBook:
              if word in field:
                 search_result.append(contact)
        return search_result         
-    
     
 
     def new_contact(self, contact: dict):
@@ -53,6 +48,12 @@ class PhoneBook:
 
 
     def save_phone_book(self):
-       with open('phone_db.txt', 'w', encoding = 'utf-8') as data:        
-         for i in self.phone_book:
-           data.write(f'\n{i}')
+       with open('phone_db.txt', 'w', encoding = 'utf-8') as data:  
+        for i in self.phone_book:
+           data.write(f' {i.get("name")};{i.get("phone")};{i.get("comment")}\n')
+       print('\n>> Cправочник успешно сохранен <<\n')    
+
+         
+      
+
+    
